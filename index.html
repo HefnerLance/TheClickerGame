@@ -1,17 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Clicker Game</title>
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
-<body>
 
-    
+<body class="img-fit">
+    <!-- <img class="img-fit"src="/assets/stars.png" alt="stars"> -->
+    <div class="col d-flex justify-content-center">
+        <H1 class="text-light">The moon miner</H1>
+    </div>
+
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <!-- for centering img -->
+                <div class="card">
+                    <span>Resources:<span id="counter">0</span></span>
+                    <span>rovers:<span id="passives">0</span><button onclick="buyPassive()">rrrrrrrr</button></span>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <!-- on click moon here -->
+                <img onclick="mine()" src="/assets/moon.png" alt="moon-rock">
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <span>Buy Pickaxe: <span id="pickPrice">0</span>
+                                         <span id="pickCounter">0
+
+                        </span>
+                        <button onclick="buyPickaxe()">pppppp</button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+
     <script src="app.js"></script>
 </body>
+
 </html>
