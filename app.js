@@ -1,11 +1,19 @@
 var resCounter = 0;
+var collectionInterval= 0;
 
 let clickupgrades={
     pickaxes:{
-        price: 3,
+        price: 2,
         quantity:1,
         multiplier: 1,
-    }}
+    },
+    superPickaxes:{
+        price: 5,
+        quantity:0,
+        multiplier: 4,
+
+    },
+}
 let passiveupgrades ={
     rovers:{
         price: 5,
@@ -14,6 +22,8 @@ let passiveupgrades ={
     }}
 
 function mine() {
+
+
 if (clickupgrades.pickaxes.quantity>1) {
      let clickvalue= clickupgrades.pickaxes.multiplier*clickupgrades.pickaxes.quantity
      
@@ -37,18 +47,23 @@ function update(){
     let passives= passiveupgrades.rovers.quantity
     // @ts-ignore
     document.getElementById("passives").innerText =passives
+    let pickprice= clickupgrades.pickaxes.price
+    document.getElementById("pickPrice")
 }
 // let pickaxe=
 function buyPickaxe(){
 
     let cash= resCounter
     if(cash >= clickupgrades.pickaxes["price"]){
+        // changes the price every purchase
         if(clickupgrades.pickaxes.quantity>=1){
-            clickupgrades.pickaxes.price+= clickupgrades.pickaxes.price*1.5
+            clickupgrades.pickaxes.price+= clickupgrades.pickaxes.price+ clickupgrades.pickaxes.price*0.25
         }
+        // subtracts price of the pickaxe
         (resCounter-=clickupgrades.pickaxes.price)
+
          clickupgrades.pickaxes.quantity++
-         console.log(clickupgrades.pickaxes.quantity)  
+         console.log(clickupgrades.pickaxes.price)  
         // x+=1
         // for (let key in clickupgrades) {
         //     if ((clickupgrades[key], quantity)) {
@@ -57,7 +72,7 @@ function buyPickaxe(){
         //     }
         // }
     }update()
-    console.log(clickupgrades.pickaxes.quantity)
+    console.log(clickupgrades.pickaxes.price)
     
 }
 function buyPassive(){
@@ -69,3 +84,16 @@ function buyPassive(){
 }
 
 // *passiveupgrades.rovers.multiplier
+function startInterval() {
+    collectionInterval = setInterval( ,3000);
+  }
+function collectPassiveUpgrades() {
+
+    for (let key in passiveupgrades) {
+        if (passiveupgrades[key] >=1,(key)) {
+            
+            
+        }
+    }
+    
+}
