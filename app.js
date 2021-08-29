@@ -21,7 +21,14 @@ let passiveupgrades ={
         price: 5,
         quantity: 0,
         multiplier: 20,
-    }}
+    },
+    shuttles:{
+        price:25,
+        quantity: 0,
+        multiplier: 2,
+    }
+
+}
 function clickpowersum(){
 
     let clicker=1
@@ -127,8 +134,9 @@ function collectPassiveUpgrades() {
     
     for (let key in passiveupgrades) {
         console.log(key)
-        if (passiveupgrades.rovers.quantity >=1) {
-            resCounter += passiveupgrades.rovers.quantity * passiveupgrades.rovers.multiplier
+        if (passiveupgrades.rovers.quantity >=1 || passiveupgrades.shuttles.quantity >=1) {
+            resCounter += (passiveupgrades.rovers.quantity * passiveupgrades.rovers.multiplier)+
+            passiveupgrades.shuttles.quantity* passiveupgrades.shuttles.multiplier
             
         } update()
     }
