@@ -28,11 +28,22 @@
                         <span>Resources:<span id="counter">0</span></span>
                     </div>
                     <div>
-                        <span>Click Power:<span id="clickpower">0</span></span>
+                        <span>Click Power:<span id="clickerpower">0</span></span>
                     </div>
                     <div>
-
-                        <span>rovers:<span id="passives">0</span><button onclick="buyPassive()">BUY ROVER</button></span>
+                        <span>+40 collection per</span>
+                        <span>rovers:<span id="passives">0</span>
+                        <span>
+                            price: <span id="roverprice">0</span>
+                        </span>
+                        <button onclick="buyPassive()">BUY ROVER</button></span>
+                    </div>
+                    <div>
+                        <span>+100 collection per</span>
+                        <span> shuttles:<span id="shuttles">0</span><span>
+                            price: <span id="shuttleprice">0</span>
+                        </span>
+                        <button onclick="buyShuttle()">BUY SHUTTLE</button></span>
                     </div>
                     
                 </div>
@@ -41,8 +52,8 @@
                 <!-- on click moon here -->
                 <img class="img-fluid" onclick="mine()" src="/assets/moon.png" alt="moon-rock">
             </div>
-            <div class="col-lg-3">
-                <div class="card">
+            <div class="col-lg-3 d-flex">
+                <div class="card d-flex justify-content-between">
                     <div>
 
                         <span>Buy Pickaxe: 

@@ -25,7 +25,7 @@ let passiveupgrades ={
     shuttles:{
         price:25,
         quantity: 0,
-        multiplier: 2,
+        multiplier: 50,
     }
 
 }
@@ -33,7 +33,7 @@ function clickpowersum(){
 
     let clicker=1
     if (clicker>=1) {
-        clicker+=(clickupgrades.pickaxes.quantity*clickupgrades.pickaxes.multiplier)+
+        clicker=(clickupgrades.pickaxes.quantity*clickupgrades.pickaxes.multiplier)+
         clickupgrades.superPickaxes.multiplier*clickupgrades.superPickaxes.quantity
     }console.log(clicker)
 }
@@ -71,10 +71,23 @@ function update(){
     let superPickPrice= clickupgrades.superPickaxes.price;
     document.getElementById("superPickprice").innerText= superPickPrice
     
-    let clickerdisplay= clickerpower
-    document.getElementById("clickpower").innerText= clickerdisplay
+    let clickerdisplay= (clickupgrades.pickaxes.quantity*clickupgrades.pickaxes.multiplier)+
+    (clickupgrades.superPickaxes.quantity*clickupgrades.superPickaxes.multiplier)
+    document.getElementById("clickerpower").innerText= clickerdisplay
+    
     let superPicks= clickupgrades.superPickaxes.quantity
     document.getElementById("superPickaxe").innerText= superPicks
+
+    let shuttles= passiveupgrades.shuttles.quantity;
+    document.getElementById("shuttles").innerText = shuttles
+    let shuttleprice= passiveupgrades.shuttles.price;
+    document.getElementById("shuttleprice").innerText= shuttleprice
+
+    let roverprice = passiveupgrades.rovers.price;
+    document.getElementById("roverprice").innerText =roverprice
+    
+    
+
     clickpowersum();
 
 }
@@ -100,7 +113,7 @@ function buyPickaxe(){
         //     }
         // }
     }update()
-    console.log(clickupgrades.pickaxes.price)
+    
     
 }
 
@@ -116,13 +129,25 @@ function buySuperPick(){
 }
 function buyPassive(){
     let cash= resCounter
-    if(passiveupgrades.rovers.quantity>=1){
+    if (cash>= passiveupgrades.rovers.price){
+    if(passiveupgrades.rovers.quantity>=0){
+            (resCounter-=passiveupgrades.rovers.price)
         passiveupgrades.rovers.price+= passiveupgrades.rovers.price+ passiveupgrades.rovers.price*0.25
     }
-    if (cash>= passiveupgrades.rovers.price){
-        (resCounter-=passiveupgrades.rovers.price)
     passiveupgrades.rovers.quantity++
     }update()
+}
+
+function buyShuttle() {
+    let cash= resCounter
+    if (cash>=passiveupgrades.shuttles.price ) {
+        if (passiveupgrades.shuttles.quantity>= 0){
+            (resCounter-=passiveupgrades.shuttles.price)
+            passiveupgrades.shuttles.price+= passiveupgrades.shuttles.price+ passiveupgrades.shuttles.price*0.50
+        }
+        passiveupgrades.shuttles.quantity++
+    }update()
+    
 }
 
 // *passiveupgrades.rovers.multiplier
