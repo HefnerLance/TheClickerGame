@@ -70,6 +70,10 @@ function update(){
     
     let superPickPrice= clickupgrades.superPickaxes.price;
     document.getElementById("superPickprice").innerText= superPickPrice
+
+    let passiveIncome= (passiveupgrades.rovers.quantity*(passiveupgrades.rovers.multiplier*2))+
+    (2*passiveupgrades.shuttles.multiplier*(passiveupgrades.shuttles.quantity))
+    document.getElementById("passiveIncome").innerText=passiveIncome
     
     let clickerdisplay= (clickupgrades.pickaxes.quantity*clickupgrades.pickaxes.multiplier)+
     (clickupgrades.superPickaxes.quantity*clickupgrades.superPickaxes.multiplier)
@@ -159,9 +163,10 @@ function collectPassiveUpgrades() {
     
     for (let key in passiveupgrades) {
         console.log(key)
+    
         if (passiveupgrades.rovers.quantity >=1 || passiveupgrades.shuttles.quantity >=1) {
             resCounter += (passiveupgrades.rovers.quantity * passiveupgrades.rovers.multiplier)+
-            passiveupgrades.shuttles.quantity* passiveupgrades.shuttles.multiplier
+            (passiveupgrades.shuttles.quantity* passiveupgrades.shuttles.multiplier)
             
         } update()
     }
